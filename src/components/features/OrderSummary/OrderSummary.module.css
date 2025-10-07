@@ -1,37 +1,43 @@
 .summary {
-	text-align: center;
-	font-size: 14px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .label,
 .text {
-	color: var(--color-char-mid);
-	font-weight: var(--font-weight-medium);
+  color: var(--color-char-mid);
+  font-weight: var(--font-weight-medium);
 }
 .text {
-	padding-top: 24px;
+  padding-top: 24px;
+}
+.label {
+  padding-bottom: 4px;
 }
 .amount {
-	font-size: 32px;
-	line-height: 100%;
+  font-size: 32px;
+  line-height: 100%;
 }
 
 .highlight {
-	color: var(--color-char-dark);
-	font-weight: var(--font-weight-medium);
+  color: var(--color-char-dark);
+  font-weight: var(--font-weight-medium);
 }
 
 .currency {
-	font-family: var(--font-special);
-	font-weight: var(--font-weight-medium);
+  font-family: var(--font-special);
+  font-weight: var(--font-weight-medium);
 }
 
 @media (min-width: 789px) {
-	.summary {
-		text-align: left;
-		font-size: 16px;
-	}
-	.amount {
-		font-size: 48px;
-	}
+  .summary {
+    text-align: left;
+    font-size: 16px;
+  }
+  .amount {
+    font-size: 48px;
+  }
+  .label {
+    padding-bottom: 8;
+  }
 }
