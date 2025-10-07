@@ -1,0 +1,102 @@
+.wrapper {
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-border);
+  border-radius: var(--radius-s);
+  transition: var(--transition);
+  height: var(--input-height);
+}
+
+/* Hover state */
+.container:hover:not(.focused):not(.error) {
+  border: 2px solid var(--color-char-dark);
+}
+
+/* Focus state */
+.container.focused {
+  border: 2px solid var(--color-primary);
+  box-shadow: 0px 0px 2px 0px var(--color-focus-shadow);
+}
+
+/* Error state */
+.container.error {
+  border: 2px solid var(--color-error-border);
+}
+
+/* Icons */
+.cardIcon,
+.cvcIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Inputs */
+.input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-char-dark);
+  padding: 0;
+}
+
+.input::placeholder {
+  color: var(--color-char-mid);
+}
+
+.error .input {
+  background-color: transparent;
+}
+
+.error .input::placeholder {
+  color: var(--color-error-text);
+}
+
+/* Card number input */
+.cardInput {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Expiry input */
+.expiryInput {
+  width: 60px;
+  flex-shrink: 0;
+}
+
+/* CVC input */
+.cvcInput {
+  width: 40px;
+  flex-shrink: 0;
+}
+
+/* Error message */
+.errorMessage {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--color-error-text);
+  font-weight: var(--font-weight-regular);
+}
+
+.error.cardError .cardInput {
+  color: var(--color-error-text);
+}
+
+.error.expiryError .expiryInput {
+  color: var(--color-error-text);
+}
+
+.error.cvcError .cvcInput {
+  color: var(--color-error-text);
+}

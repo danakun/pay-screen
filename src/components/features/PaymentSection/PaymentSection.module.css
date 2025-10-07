@@ -10,7 +10,8 @@
   align-items: center;
   gap: 16px;
   width: 100%;
-  margin: 24px 0;
+  margin: 32px 0;
+  line-height: 100%;
 }
 
 .line {
@@ -49,7 +50,13 @@
 
 .methodButtons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 16px;
   margin-bottom: 24px;
+}
+
+@media (min-width: 789px) {
+  .methodButtons {
+    gap: 24px;
+  }
 }

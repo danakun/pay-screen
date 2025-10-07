@@ -1,13 +1,13 @@
 .selector {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 6px 12px;
   background-color: var(--color-white);
   border: 1px solid var(--color-neutral-border);
-  border-radius: var(--radius-s);
+  border-radius: 2px;
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: 10px;
   font-weight: var(--font-weight-regular);
   color: var(--color-char-dark);
   cursor: pointer;
@@ -25,13 +25,13 @@
 }
 
 .label {
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .flag {
   display: block;
-  width: 24px;
-  height: 18px;
+  width: 20px;
+  height: 14px;
 }
 
 .chevron {
@@ -41,4 +41,19 @@
 
 .selector:hover .chevron {
   transform: translateY(2px);
+}
+
+@media (min-width: 768px) {
+  .selector {
+    font-size: 14px;
+    gap: 10px;
+  }
+  .label {
+    font-size: 14px;
+  }
+  .flag {
+    display: block;
+    width: 28px;
+    height: 20px;
+  }
 }

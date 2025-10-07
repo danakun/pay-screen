@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./PaymentSection.module.css";
 import Cards from "@assets/icons/cards.svg";
 import Paycomet from "@assets/logos/Paycomet.svg";
+import { CardInput } from "@/components/ui/CardInput/CardInput";
 import { PayButton } from "../../ui/PayButton/PayButton";
 import { PaymentMethodButton } from "../../ui/PaymentMethodButton/PaymentMethodButton";
 import GooglePayLogo from "@assets/logos/googlepay.svg";
@@ -51,7 +52,7 @@ export const PaymentSection = () => {
 
   const handleCardClick = () => {
     setLoadingCard(true);
-    setTimeout(() => setLoadingCard(false), 30000);
+    setTimeout(() => setLoadingCard(false), 3000);
   };
 
   const handleGoogleClick = () => {
@@ -76,6 +77,7 @@ export const PaymentSection = () => {
         <img src={Cards} alt="Cards logos" className={styles.cardlogos} />
       </div>
       <div className={styles.content}>
+        <CardInput />
         {/* Primary button */}
         <PayButton
           variant="primary"
