@@ -6,13 +6,12 @@ A modern, responsive payment interface built with React, TypeScript, and Vite.
 
 ## Features
 
-- 🎨 Clean, modern UI with Roboto font family
-- 💳 Multiple payment method support
-- 📱 Fully responsive design
-- ♿ Accessible components with proper focus states
-- ⚡ Fast development with Vite
-- 🎯 TypeScript for type safety
-- 🎨 CSS Modules for scoped styling
+- Clean, modern UI with Roboto font family
+- Multiple payment method support
+- Fully responsive design
+- Fast development with Vite
+- TypeScript for type safety
+- CSS Modules for scoped styling
 
 ## Getting Started
 
