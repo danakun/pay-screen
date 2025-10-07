@@ -46,7 +46,6 @@ For testing purposes, you can use the following valid test card number:
 - **Card Number**: `5425 2334 3010 9903`
 - **CVV/CVC**: Any 3 digits - e.g., `123`
 - **Expiry Date**: Any future date - e.g., `12/26`
-- **Name**: Any name - e.g., `John Doe`
 
 > **Note**: This is a test card number that passes Luhn algorithm validation. It is for development and testing purposes only. Never use real card information in development environments.
 
