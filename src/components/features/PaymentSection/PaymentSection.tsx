@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styles from "./PaymentSection.module.css";
-import Cards from "@assets/icons/cards.svg";
-import Paycomet from "@assets/logos/Paycomet.svg";
 import { CardInput } from "@/components/ui/CardInput/CardInput";
 import { PayButton } from "../../ui/PayButton/PayButton";
 import { PaymentMethodButton } from "../../ui/PaymentMethodButton/PaymentMethodButton";
+import Cards from "@assets/icons/cards.svg";
+import Paycomet from "@assets/logos/paycomet.svg";
 import GooglePayLogo from "@assets/logos/googlepay.svg";
 import ApplePayLogo from "@assets/logos/applepay.svg";
 import ClickToPayIcon from "@assets/icons/clicktopay1.svg";
