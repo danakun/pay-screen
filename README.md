@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# Payment Screen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive payment interface built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎨 Clean, modern UI with Roboto font family
+- 💳 Multiple payment method support
+- 📱 Fully responsive design
+- ♿ Accessible components with proper focus states
+- ⚡ Fast development with Vite
+- 🎯 TypeScript for type safety
+- 🎨 CSS Modules for scoped styling
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
 
-## Expanding the ESLint configuration
+```bash
+# Clone the repository
+git clone <your-repo-url>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Navigate to project directory
+cd pay-screen
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Install dependencies
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Build for Production
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+## Testing Card Information
+
+For testing purposes, you can use the following valid test card number:
+
+### Mastercard
+
+- **Card Number**: `5425 2334 3010 9903`
+- **CVV/CVC**: Any 3 digits - e.g., `123`
+- **Expiry Date**: Any future date - e.g., `12/26`
+- **Name**: Any name - e.g., `John Doe`
+
+> **Note**: This is a test card number that passes Luhn algorithm validation. It is for development and testing purposes only. Never use real card information in development environments.
+
+## Project Structure
+
+```
+pay-screen/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── features/
+│   │   │   ├── OrderSummary/
+│   │   │   └── PaymentSection/
+│   │   ├── layout/
+│   │   │   └── Footer/
+│   │   └── ui/
+│   │       ├── CardInput/
+│   │       ├── LanguageSelector/
+│   │       ├── PayButton/
+│   │       └── PaymentMethodButton/
+│   ├── App.module.css
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+## Technology Stack
+
+- **React** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **CSS Modules** - Scoped styling
+- **Google Fonts** - Roboto & Roboto Condensed
+
+## Design Tokens
+
+The project uses CSS custom properties for consistent theming:
+
+- **Colors**: Primary blue, neutral grays, error states
+- **Typography**: Roboto (400, 500 weights) + Roboto Condensed
+- **Spacing**: Consistent 8px/16px scale
+- **Transitions**: 200ms ease-in-out
+
+## Support
+
+Thank You!

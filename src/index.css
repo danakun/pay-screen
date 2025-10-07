@@ -27,8 +27,8 @@
   --font-weight-regular: 400;
   --font-weight-medium: 500;
 
-  --spacing-sm: 0.5rem; /* 8px */
-  --spacing-md: 1rem; /* 16px */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
 
   --radius-s: 4px;
 
