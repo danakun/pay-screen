@@ -1,0 +1,44 @@
+.selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-border);
+  border-radius: var(--radius-s);
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-char-dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.selector:hover {
+  border-color: var(--color-neutral-lite);
+}
+
+.selector:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0px 0px 2px 0px var(--color-focus-shadow);
+}
+
+.label {
+  font-size: 14px;
+}
+
+.flag {
+  display: block;
+  width: 24px;
+  height: 18px;
+}
+
+.chevron {
+  color: var(--color-char-dark);
+  transition: transform var(--transition);
+}
+
+.selector:hover .chevron {
+  transform: translateY(2px);
+}

@@ -1,0 +1,18 @@
+.summary {
+}
+
+.label,
+.text {
+  color: var(--color-char-mid);
+  font-weight: var(--font-weight-medium);
+}
+
+.highlight {
+  color: var(--color-char-dark);
+  font-weight: var(--font-weight-medium);
+}
+
+.currency {
+  font-family: var(--font-special);
+  font-weight: var(--font-weight-medium);
+}

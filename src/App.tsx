@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styles from "./App.module.css";
+import { Footer } from "./components/layout/Footer";
+import { LanguageSelector } from "./components/ui/LanguageSelector";
+import { OrderSummary } from "./components/features/OrderSummary";
+import { PaymentSection } from "./components/features/PaymentSection";
+import Paycomet from "@assets/logos/Paycomet.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className={styles.mainLayout}>
+        <header className={styles.header}>
+          <div className={`${styles.leftColumn} ${styles.leftHeaderP}`}>
+            <div
+              className={`${styles.container} ${styles.headerContainer} ${styles.left}`}
+            >
+              <img src={Paycomet} alt="Paycomet" className={styles.logo} />
+            </div>
+          </div>
+
+          <div className={`${styles.rightColumn} ${styles.rightHeaderP}`}>
+            <div className={`${styles.container} ${styles.headerContainer}`}>
+              <div className={styles.langInput}>
+                <LanguageSelector />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className={styles.leftColumn}>
+          <div className={`${styles.container} ${styles.left}`}>
+            <div className={styles.content}>
+              <OrderSummary
+                amount="100.00"
+                merchant="Bankstore"
+                reference="#20220616123806"
+              />
+            </div>
+            <Footer className={styles.footer} />
+          </div>
+        </div>
+
+        <div className={styles.rightColumn}>
+          <div className={styles.container}>
+            <div className={styles.content}>
+              <PaymentSection />
+            </div>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
