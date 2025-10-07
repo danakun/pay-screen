@@ -4,7 +4,7 @@ import { Footer } from "./components/layout/Footer";
 import { LanguageSelector } from "./components/ui/LanguageSelector";
 import { OrderSummary } from "./components/features/OrderSummary";
 import { PaymentSection } from "./components/features/PaymentSection";
-import Paycomet from "@assets/logos/Paycomet.svg";
+import Paycomet from "@assets/logos/paycomet.svg";
 
 function App() {
   const [orderData] = useState({
