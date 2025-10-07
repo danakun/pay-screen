@@ -1,15 +1,14 @@
 .mainLayout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Change to 2 columns */
+  grid-template-columns: 1fr 1fr;
   min-height: 100vh;
   grid-template-areas:
-    "header-left header-right" /* Both headers in one row */
-    "content-left content-left" /* Content left spans both columns */
-    "content-right content-right" /* Content right spans both columns */
-    "footer-left footer-left"; /* Footer spans both columns */
+    "header-left header-right"
+    "content-left content-left"
+    "content-right content-right"
+    "footer-left footer-left";
 }
 
-/* Header Left */
 .headerLeft {
   grid-area: header-left;
   background-color: #fafafa;
@@ -20,7 +19,6 @@
   align-items: start;
 }
 
-/* Header Right */
 .headerRight {
   grid-area: header-right;
   background-color: #fafafa;
@@ -31,7 +29,6 @@
   align-items: end;
 }
 
-/* Content Left */
 .contentLeft {
   grid-area: content-left;
   background-color: #fafafa;
@@ -39,7 +36,6 @@
   order: 3;
 }
 
-/* Content Right */
 .contentRight {
   grid-area: content-right;
   background-color: #fafafa;
@@ -47,7 +43,6 @@
   order: 4;
 }
 
-/* Footer Left */
 .footerLeft {
   grid-area: footer-left;
   background-color: #fafafa;
@@ -55,12 +50,10 @@
   order: 5;
 }
 
-/* Footer Right - hidden on mobile */
 .footerRight {
   display: none;
 }
 
-/* Container - flex on mobile */
 .container {
   display: flex;
   flex-direction: column;
@@ -117,7 +110,7 @@
 
   .contentLeft {
     background-color: white;
-    padding: 0 24px 48px;
+    padding: 0 24px 0;
     display: flex;
     justify-content: flex-end;
     order: unset;
@@ -125,7 +118,7 @@
 
   .contentRight {
     background-color: #fafafa;
-    padding: 0 24px 48px 0;
+    padding: 0 24px 0 0;
     display: flex;
     justify-content: flex-start;
     order: unset;
@@ -169,20 +162,17 @@
     justify-self: end;
   }
 
-  /* OrderSummary is now the only child in contentLeft */
   .contentLeft .container > * {
     grid-column: 2 / 6;
     margin-top: 40px;
     align-self: start;
   }
 
-  /* PaymentSection in contentRight */
   .contentRight .container > * {
     grid-column: 2 / 6;
     margin-top: 40px;
   }
 
-  /* Footer is now in its own section */
   .footerLeft .container > * {
     grid-column: 2 / 7;
   }

@@ -16,7 +16,11 @@
 }
 
 /* Hover state */
-.container:hover:not(.focused):not(.error) {
+.container:hover:not(.focused):not(.error):not(.filled) {
+  border: 1px solid var(--color-char-dark);
+}
+
+.container:hover:not(.focused):not(.error).filled {
   border: 2px solid var(--color-char-dark);
 }
 

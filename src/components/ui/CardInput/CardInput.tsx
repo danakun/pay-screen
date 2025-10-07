@@ -26,7 +26,6 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
   const [cvc, setCvc] = useState("");
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [error, setError] = useState<ErrorType>(null);
-  //const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (onCardChange) {
@@ -102,7 +101,6 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
     return cvcValue.length === 3;
   };
 
-  // Update the blur handler to validate
   const handleBlur = (field: string) => {
     setFocusedField(null);
 
@@ -110,21 +108,18 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
     if (field === "card" && cardNumber.length === 16) {
       if (!validateCardNumber(cardNumber)) {
         setError("card");
-        //setErrorMessage("El número de tu tarjeta no es válido.");
       }
     }
 
     if (field === "expiry" && expiry.length === 4) {
       if (!validateExpiry(expiry)) {
         setError("expiry");
-        //setErrorMessage("El año de caducidad de la tarjeta ya ha pasado.");
       }
     }
 
     if (field === "cvc" && cvc.length > 0) {
       if (!validateCvc(cvc)) {
         setError("cvc");
-        //setErrorMessage("El CVC no es correcto.");
       }
     }
   };
@@ -213,6 +208,7 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
   const containerClass = `
   ${styles.container}
   ${focusedField ? styles.focused : ""}
+  ${cardNumber.length > 0 ? styles.filled : ""} 
   ${error ? styles.error : ""}
   ${error === "card" ? styles.cardError : ""}
   ${error === "expiry" ? styles.expiryError : ""}
@@ -231,10 +227,8 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={containerClass}>
-        {/* Card Icon */}
         <img src={getCardIcon()} alt="" className={styles.cardIcon} />
 
-        {/* Card Number Input */}
         <input
           ref={cardRef}
           type="text"
@@ -246,7 +240,6 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
           className={`${styles.input} ${styles.cardInput}`}
         />
 
-        {/* Expiry Input */}
         <input
           ref={expiryRef}
           type="text"
@@ -258,7 +251,6 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
           className={`${styles.input} ${styles.expiryInput}`}
         />
 
-        {/* CVC Input */}
         <input
           ref={cvcRef}
           type="text"
@@ -271,7 +263,6 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
         />
       </div>
 
-      {/* Error Message */}
       {error && <p className={styles.errorMessage}>{getErrorMessage()}</p>}
     </div>
   );

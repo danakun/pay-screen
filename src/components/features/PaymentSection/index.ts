@@ -1,1 +1,1 @@
-export { PaymentSection } from "./PaymentSection";
+export { PaymentSection } from './PaymentSection';

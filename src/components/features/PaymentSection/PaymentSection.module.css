@@ -1,62 +1,62 @@
 .heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
 }
 
 .divider {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-  margin: 32px 0;
-  line-height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	width: 100%;
+	margin: 32px 0;
+	line-height: 100%;
 }
 
 .line {
-  flex: 1;
-  height: 1px;
-  background-color: var(--color-neutral-border);
+	flex: 1;
+	height: 1px;
+	background-color: var(--color-neutral-border);
 }
 
 .text {
-  color: var(--color-char-dark);
-  font-size: 14px;
-  font-weight: var(--font-weight-medium);
-  white-space: nowrap;
-  padding: 0 8px;
+	color: var(--color-char-dark);
+	font-size: 14px;
+	font-weight: var(--font-weight-medium);
+	white-space: nowrap;
+	padding: 0 8px;
 }
 .title {
-  color: var(--color-char-dark);
-  font-size: 14px;
-  font-weight: var(--font-weight-medium);
+	color: var(--color-char-dark);
+	font-size: 14px;
+	font-weight: var(--font-weight-medium);
 }
 
 .logoPaycomet {
-  width: 208px;
-  height: 34px;
-  margin: 0 auto;
-  display: block;
+	width: 208px;
+	height: 34px;
+	margin: 0 auto;
+	display: block;
 }
 
 .marginM {
-  margin-bottom: 32px;
+	margin-bottom: 32px;
 }
 
 .marginS {
-  margin-bottom: 8px;
+	margin-bottom: 8px;
 }
 
 .methodButtons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+	gap: 16px;
+	margin-bottom: 24px;
 }
 
 @media (min-width: 789px) {
-  .methodButtons {
-    gap: 24px;
-  }
+	.methodButtons {
+		gap: 24px;
+	}
 }

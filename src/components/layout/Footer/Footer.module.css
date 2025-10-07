@@ -1,54 +1,54 @@
 .footer {
-  padding: 0;
-  color: var(--color-char-mid);
-  font-weight: var(--font-weight-medium);
-  font-size: 12px;
-  line-height: 1.6;
-  text-align: center;
+	padding: 0;
+	color: var(--color-char-mid);
+	font-weight: var(--font-weight-medium);
+	font-size: 12px;
+	line-height: 1.6;
+	text-align: center;
 }
 
 .info {
-  margin-bottom: 8px;
+	margin-bottom: 8px;
 }
 
 .text {
-  line-height: 170%;
+	line-height: 170%;
 }
 
 .links {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-  justify-content: center;
+	display: flex;
+	gap: 28px;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .link {
-  color: var(--color-char-mid);
-  text-decoration: none;
-  transition: color var(--transition);
+	color: var(--color-char-mid);
+	text-decoration: none;
+	transition: color var(--transition);
 }
 
 .link:hover {
-  color: var(--color-primary);
+	color: var(--color-primary);
 }
 
 .emailLink {
-  color: var(--color-char-mid);
-  text-decoration: none;
-  transition: color var(--transition);
+	color: var(--color-char-mid);
+	text-decoration: none;
+	transition: color var(--transition);
 }
 
 .emailLink:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
+	color: var(--color-primary);
+	text-decoration: underline;
 }
 
 @media (min-width: 768px) {
-  .footer {
-    padding: 0;
-    text-align: left;
-  }
-  .links {
-    justify-content: flex-start;
-  }
+	.footer {
+		padding: 0;
+		text-align: left;
+	}
+	.links {
+		justify-content: flex-start;
+	}
 }

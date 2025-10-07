@@ -14,7 +14,15 @@ import KlarnaLogo from "@assets/logos/klarna.svg";
 import BizumLogo from "@assets/logos/bizum.svg";
 import SkrillLogo from "@assets/logos/skrill.svg";
 
-export const PaymentSection = () => {
+interface PaymentSectionProps {
+  amount: string;
+  currency?: string;
+}
+
+export const PaymentSection = ({
+  amount,
+  currency = "€",
+}: PaymentSectionProps) => {
   const [loadingCard, setLoadingCard] = useState(false);
   const [loadingGoogle, setLoadingGoogle] = useState(false);
   const [loadingApple, setLoadingApple] = useState(false);
@@ -78,14 +86,15 @@ export const PaymentSection = () => {
       </div>
       <div className={styles.content}>
         <CardInput />
-        {/* Primary button */}
+
         <PayButton
           variant="primary"
           className={styles.marginM}
           loading={loadingCard}
           onClick={handleCardClick}
         >
-          Pagar con tarjeta 100.00€
+          Pagar con tarjeta {amount}
+          {currency}
         </PayButton>
 
         {/* Google Pay */}
@@ -142,12 +151,13 @@ export const PaymentSection = () => {
         >
           Pagar con
         </PayButton>
-        {/* Divider */}
+
         <div className={styles.divider}>
           <span className={styles.line}></span>
           <p className={styles.text}>O paga con otro método alternativo</p>
           <span className={styles.line}></span>
         </div>
+
         <div className={styles.methodButtons}>
           <PaymentMethodButton
             icon={PayPalLogo}

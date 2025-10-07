@@ -1,84 +1,84 @@
 .button {
-  width: 100%;
-  height: var(--button-height);
-  border: none;
-  border-radius: var(--radius-s);
-  font-family: var(--font-family);
-  font-size: 20px;
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+	width: 100%;
+	height: var(--button-height);
+	border: none;
+	border-radius: var(--radius-s);
+	font-family: var(--font-family);
+	font-size: 20px;
+	font-weight: var(--font-weight-medium);
+	cursor: pointer;
+	transition: var(--transition);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
 }
 
 /* Primary variant - Blue button */
 .primary {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border: 1px solid var(--color-primary-border);
+	background-color: var(--color-primary);
+	color: var(--color-white);
+	border: 1px solid var(--color-primary-border);
 }
 
 .primary:hover:not(:disabled) {
-  background-color: #0052cc;
+	background-color: #0052cc;
 }
 
 .primary:active:not(:disabled) {
-  background-color: #0047b3;
+	background-color: #0047b3;
 }
 
 /* Payment Provider variant - Black button */
 .secondary {
-  background-color: var(--color-black);
-  color: var(--color-white);
+	background-color: var(--color-black);
+	color: var(--color-white);
 }
 
 .secondary:hover:not(:disabled) {
-  background-color: #1a1a1a;
+	background-color: #1a1a1a;
 }
 
 .secondary:active:not(:disabled) {
-  background-color: #0d0d0d;
+	background-color: #0d0d0d;
 }
 
 /* Icon and text */
 .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .text {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 /* Loading animation */
 .loadingContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-white);
-  animation: pulse 1s ease-in-out infinite;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: var(--color-white);
+	animation: pulse 1s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
+	0%,
+	100% {
+		opacity: 0.3;
+		transform: scale(0.8);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
