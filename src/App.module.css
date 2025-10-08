@@ -11,7 +11,7 @@
 
 .headerLeft {
   grid-area: header-left;
-  background-color: #fafafa;
+  background-color: var(--color-neutral-bg);
   padding: 16px 0 24px 24px;
   order: 1;
   display: flex;
@@ -21,7 +21,7 @@
 
 .headerRight {
   grid-area: header-right;
-  background-color: #fafafa;
+  background-color: var(--color-neutral-bg);
   padding: 16px 24px 24px 0;
   order: 2;
   display: flex;
@@ -31,21 +31,21 @@
 
 .contentLeft {
   grid-area: content-left;
-  background-color: #fafafa;
-  padding: 24px 24px 0;
+  background-color: var(--color-neutral-bg);
+  padding: 0 24px 0;
   order: 3;
 }
 
 .contentRight {
   grid-area: content-right;
-  background-color: #fafafa;
+  background-color: var(--color-neutral-bg);
   padding: 24px;
   order: 4;
 }
 
 .footerLeft {
   grid-area: footer-left;
-  background-color: #fafafa;
+  background-color: var(--color-neutral-bg);
   padding: 0 24px 24px;
   order: 5;
 }
@@ -93,7 +93,7 @@
   }
 
   .headerLeft {
-    background-color: white;
+    background-color: var(--color-white);
     padding: 24px 24px 24px;
     display: flex;
     justify-content: flex-end;
@@ -101,7 +101,7 @@
   }
 
   .headerRight {
-    background-color: #fafafa;
+    background-color: var(--color-neutral-bg);
     padding: 24px 24px 24px 0;
     display: flex;
     justify-content: flex-start;
@@ -109,7 +109,7 @@
   }
 
   .contentLeft {
-    background-color: white;
+    background-color: var(--color-white);
     padding: 0 24px 0;
     display: flex;
     justify-content: flex-end;
@@ -117,7 +117,7 @@
   }
 
   .contentRight {
-    background-color: #fafafa;
+    background-color: var(--color-neutral-bg);
     padding: 0 24px 0 0;
     display: flex;
     justify-content: flex-start;
@@ -125,7 +125,7 @@
   }
 
   .footerLeft {
-    background-color: white;
+    background-color: var(--color-white);
     padding: 0 24px 48px;
     display: flex;
     justify-content: flex-end;
@@ -134,8 +134,7 @@
 
   .footerRight {
     grid-area: footer-right;
-    background-color: #fafafa;
-    display: block;
+    background-color: var(--color-neutral-bg);
     padding: 0 24px 48px;
   }
 
