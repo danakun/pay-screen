@@ -1,4 +1,3 @@
-// CardInput.tsx
 import { useState, useEffect, useRef, type ChangeEvent } from "react";
 import styles from "./CardInput.module.css";
 import EmptyIcon from "@assets/icons/empty.svg";
@@ -18,14 +17,16 @@ interface CardData {
   cvc: string;
 }
 
-type ErrorType = "card" | "expiry" | "cvc" | null;
-
 export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvc, setCvc] = useState("");
   const [focusedField, setFocusedField] = useState<string | null>(null);
-  const [error, setError] = useState<ErrorType>(null);
+  
+  // Separate error states for each field
+  const [cardError, setCardError] = useState(false);
+  const [expiryError, setExpiryError] = useState(false);
+  const [cvcError, setCvcError] = useState(false);
 
   useEffect(() => {
     if (onCardChange) {
@@ -41,14 +42,12 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
   const expiryRef = useRef<HTMLInputElement>(null);
   const cvcRef = useRef<HTMLInputElement>(null);
 
-  // Format card number with spaces
   const formatCardNumber = (value: string): string => {
     const cleaned = value.replace(/\s/g, "");
     const chunks = cleaned.match(/.{1,4}/g);
     return chunks ? chunks.join(" ") : cleaned;
   };
 
-  // Format expiry as MM/AA
   const formatExpiry = (value: string): string => {
     const cleaned = value.replace(/\D/g, "");
     if (cleaned.length >= 2) {
@@ -58,7 +57,7 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
   };
 
   const validateCardNumber = (number: string): boolean => {
-    // Luhn algorithm for card validation
+    // Luhn algorithm 
     if (number.length !== 16) return false;
 
     let sum = 0;
@@ -104,23 +103,16 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
   const handleBlur = (field: string) => {
     setFocusedField(null);
 
-    // Validate on blur
     if (field === "card" && cardNumber.length === 16) {
-      if (!validateCardNumber(cardNumber)) {
-        setError("card");
-      }
+      setCardError(!validateCardNumber(cardNumber));
     }
 
     if (field === "expiry" && expiry.length === 4) {
-      if (!validateExpiry(expiry)) {
-        setError("expiry");
-      }
+      setExpiryError(!validateExpiry(expiry));
     }
 
     if (field === "cvc" && cvc.length > 0) {
-      if (!validateCvc(cvc)) {
-        setError("cvc");
-      }
+      setCvcError(!validateCvc(cvc));
     }
   };
 
@@ -129,17 +121,15 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
     if (value.length <= 16 && /^\d*$/.test(value)) {
       setCardNumber(value);
 
-      // Clear error when typing
-      if (error === "card") {
-        setError(null);
+      if (cardError) {
+        setCardError(false);
       }
 
-      // Validate in real-time when complete
       if (value.length === 16) {
         if (!validateCardNumber(value)) {
-          setError("card");
+          setCardError(true);
         } else {
-          setError(null);
+          setCardError(false);
           expiryRef.current?.focus();
         }
       }
@@ -151,17 +141,15 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
     if (value.length <= 4) {
       setExpiry(value);
 
-      // Clear error when typing
-      if (error === "expiry") {
-        setError(null);
+      if (expiryError) {
+        setExpiryError(false);
       }
 
-      // Validate in real-time when complete
       if (value.length === 4) {
         if (!validateExpiry(value)) {
-          setError("expiry");
+          setExpiryError(true);
         } else {
-          setError(null);
+          setExpiryError(false);
           cvcRef.current?.focus();
         }
       }
@@ -173,17 +161,15 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
     if (value.length <= 3 && /^\d*$/.test(value)) {
       setCvc(value);
 
-      // Clear error when typing
-      if (error === "cvc") {
-        setError(null);
+      if (cvcError) {
+        setCvcError(false);
       }
 
-      // Validate in real-time when complete
       if (value.length === 3) {
         if (!validateCvc(value)) {
-          setError("cvc");
+          setCvcError(true);
         } else {
-          setError(null);
+          setCvcError(false);
         }
       }
     }
@@ -193,12 +179,11 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
     setFocusedField(field);
   };
 
-  // Get the appropriate icon based on state
   const getCardIcon = () => {
     if (focusedField === "cvc") return CvcFocusIcon;
-    if (error === "card") return NumberErrorIcon;
-    if (error === "expiry") return NumberErrorIcon;
-    if (error === "cvc") return CvcErrorIcon;
+    if (cardError) return NumberErrorIcon;
+    if (expiryError) return NumberErrorIcon;
+    if (cvcError) return CvcErrorIcon;
     if (cardNumber.length > 0) {
       return FilledIcon;
     }
@@ -209,19 +194,19 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
   ${styles.container}
   ${focusedField ? styles.focused : ""}
   ${cardNumber.length > 0 ? styles.filled : ""} 
-  ${error ? styles.error : ""}
-  ${error === "card" ? styles.cardError : ""}
-  ${error === "expiry" ? styles.expiryError : ""}
-  ${error === "cvc" ? styles.cvcError : ""}
+  ${(cardError || expiryError || cvcError) ? styles.error : ""}
+  ${cardError ? styles.cardError : ""}
+  ${expiryError ? styles.expiryError : ""}
+  ${cvcError ? styles.cvcError : ""}
   ${className}
 `.trim();
 
   const getErrorMessage = () => {
-    if (error === "card") return "El número de tu tarjeta no es válido.";
-    if (error === "expiry")
-      return "El año de caducidad de la tarjeta ya ha pasado.";
-    if (error === "cvc") return "El CVC no es correcto.";
-    return "";
+    const errors = [];
+    if (cardError) errors.push("El número de tu tarjeta no es válido.");
+    if (expiryError) errors.push("El año de caducidad de la tarjeta ya ha pasado.");
+    if (cvcError) errors.push("El CVC no es correcto.");
+    return errors.join(" ");
   };
 
   return (
@@ -263,7 +248,9 @@ export const CardInput = ({ onCardChange, className = "" }: CardInputProps) => {
         />
       </div>
 
-      {error && <p className={styles.errorMessage}>{getErrorMessage()}</p>}
+      {(cardError || expiryError || cvcError) && (
+        <p className={styles.errorMessage}>{getErrorMessage()}</p>
+      )}
     </div>
   );
 };

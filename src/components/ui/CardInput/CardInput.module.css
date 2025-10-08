@@ -59,14 +59,6 @@
   color: var(--color-char-mid);
 }
 
-.error .input {
-  background-color: transparent;
-}
-
-.error .input::placeholder {
-  color: var(--color-error-text);
-}
-
 /* Card number input */
 .cardInput {
   flex: 1;
@@ -93,7 +85,12 @@
   font-weight: var(--font-weight-regular);
 }
 
+/* Specific error styles for each field */
 .error.cardError .cardInput {
+  color: var(--color-error-text);
+}
+
+.error.cardError .cardInput::placeholder {
   color: var(--color-error-text);
 }
 
@@ -101,6 +98,14 @@
   color: var(--color-error-text);
 }
 
+.error.expiryError .expiryInput::placeholder {
+  color: var(--color-error-text);
+}
+
 .error.cvcError .cvcInput {
+  color: var(--color-error-text);
+}
+
+.error.cvcError .cvcInput::placeholder {
   color: var(--color-error-text);
 }
